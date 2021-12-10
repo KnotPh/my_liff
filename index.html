@@ -102,11 +102,16 @@
 
     async function main() {
       await liff.init({ liffId: "1656710552-47PEne6z" })
-      getEnvironment()
-      getUserProfile()
-      // getContext()
-      // getFriendship()
-      // createUniversalLink()
+      document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+      if (liff.isLoggedIn()) {
+        getEnvironment();
+        getUserProfile();
+        // getContext()
+        // getFriendship()
+        // createUniversalLink()
+      } else {
+        liff.login();
+      }
     }
     main()
   </script>
